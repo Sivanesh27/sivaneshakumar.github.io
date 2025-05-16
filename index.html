@@ -387,8 +387,7 @@
     </div>
     <!-- Leadership Roles End -->
 
-
-                   <!-- Contact Start -->
+                <!-- Contact Start -->
                 <div class="contact" id="contact">
                   <div class="content-inner">
                     <div class="content-header">
@@ -475,23 +474,36 @@
                 
                   form.addEventListener('submit', function(event) {
                     event.preventDefault(); // Prevent default form submission
-                    
-                    // You can add your AJAX or fetch call here to send form data to backend
                 
-                    // Simulate successful submission with a timeout (remove this in real use)
-                    setTimeout(() => {
-                      // Show popup on success
-                      popup.style.display = 'block';
-                      // Optional: reset the form after submission
-                      form.reset();
-                    }, 300);
+                    // Collect form data
+                    const formData = new FormData(form);
+                
+                    // Send form data to backend
+                    fetch('https://contact-backend-ocru.onrender.com/', {
+                      method: 'POST',
+                      body: formData,
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                      if (data.success) {
+                        // Show popup on success
+                        popup.style.display = 'block';
+                        // Reset the form after submission
+                        form.reset();
+                      } else {
+                        alert('Failed to send message: ' + (data.error || 'Unknown error'));
+                      }
+                    })
+                    .catch(error => {
+                      alert('Error sending message: ' + error.message);
+                    });
                   });
                 
                   function closePopup() {
                     popup.style.display = 'none';
                   }
                 </script>
-
+                
 
                 <!-- Footer Start -->
                 <div class="footer">
