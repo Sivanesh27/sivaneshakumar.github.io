@@ -388,59 +388,85 @@
     <!-- Leadership Roles End -->
 
 
-            <!-- Contact Start -->
-            <div class="contact" id="contact">
-              <div class="content-inner">
-                <div class="content-header">
-                  <h2>Contact</h2>
-                </div>
-                <div class="row align-items-center">
-                  <div class="col-md-6">
-                    <div class="contact-info">
-                      <p><i class="fa fa-user"></i> Sivaneshakumar</p>
-                      <p><i class="fa fa-envelope"></i>
-                        <a href="mailto:ks.sivaneshakumar@gmail.com">ks.sivaneshakumar@gmail.com</a>
-                      </p>
-                      <p><i class="fa fa-map-marker"></i> Coimbatore, Tamil Nadu, India</p>
-                      <div class="social">
-                        <a class="btn" href="https://www.linkedin.com/in/sivaneshakumar-ks-345111284" target="_blank">
-                          <i class="fab fa-linkedin-in"></i>
-                        </a>
-                      </div>
-                      <div class="social">
-                        <a class="btn" href="https://github.com/Sivanesh27" target="_blank">
-                          <i class="fab fa-github"></i>
-                        </a>
-                      </div>
-                    </div>
+          <!-- Contact Start -->
+        <div class="contact" id="contact">
+          <div class="content-inner">
+            <div class="content-header">
+              <h2>Contact</h2>
+            </div>
+            <div class="row align-items-center">
+              <div class="col-md-6">
+                <div class="contact-info">
+                  <p><i class="fa fa-user"></i> Sivaneshakumar</p>
+                  <p><i class="fa fa-envelope"></i>
+                    <a href="mailto:ks.sivaneshakumar@gmail.com">ks.sivaneshakumar@gmail.com</a>
+                  </p>
+                  <p><i class="fa fa-map-marker"></i> Coimbatore, Tamil Nadu, India</p>
+                  <div class="social">
+                    <a class="btn" href="https://www.linkedin.com/in/sivaneshakumar-ks-345111284" target="_blank">
+                      <i class="fab fa-linkedin-in"></i>
+                    </a>
                   </div>
-                  <div class="col-md-6">
-                    <div class="form">
-                      <form id="contactForm">
-                        <div class="form-row">
-                          <div class="form-group col-md-6">
-                            <input type="text" name="name" class="form-control" placeholder="Your Name" required />
-                          </div>
-                          <div class="form-group col-md-6">
-                            <input type="email" name="email" class="form-control" placeholder="Your Email" required />
-                          </div>
-                        </div>
-                        <div class="form-group">
-                          <input type="text" name="subject" class="form-control" placeholder="Subject" required />
-                        </div>
-                        <div class="form-group">
-                          <textarea name="message" class="form-control" rows="5" placeholder="Message" required></textarea>
-                        </div>
-                        <div>
-                          <button class="btn" type="submit">Send Message</button>
-                        </div>
-                      </form>
-                    </div>
+                  <div class="social">
+                    <a class="btn" href="https://github.com/Sivanesh27" target="_blank">
+                      <i class="fab fa-github"></i>
+                    </a>
                   </div>
                 </div>
               </div>
+              <div class="col-md-6">
+                <div class="form">
+                  <form id="contactForm">
+                    <div class="form-row">
+                      <div class="form-group col-md-6">
+                        <input type="text" name="name" class="form-control" placeholder="Your Name" required />
+                      </div>
+                      <div class="form-group col-md-6">
+                        <input type="email" name="email" class="form-control" placeholder="Your Email" required />
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <input type="text" name="subject" class="form-control" placeholder="Subject" required />
+                    </div>
+                    <div class="form-group">
+                      <textarea name="message" class="form-control" rows="5" placeholder="Message" required></textarea>
+                    </div>
+                    <div>
+                      <button class="btn" type="submit">Send Message</button>
+                    </div>
+                  </form>
+                </div>
+              </div>
             </div>
-            <!-- Contact End -->
+          </div>
+        </div>
+       <!-- Contact End -->
+
+<script>
+document.getElementById('contactForm').addEventListener('submit', async function (e) {
+  e.preventDefault(); // Prevent default form submit (page reload)
+
+  const formData = new FormData(this);
+
+  try {
+    const response = await fetch('https://contact-backend-ocru.onrender.com', {
+      method: 'POST',
+      body: formData
+    });
+
+    if (response.ok) {
+      alert('Contact request sent!');
+      this.reset();
+    } else {
+      alert('Error sending message. Please try again later.');
+    }
+  } catch (error) {
+    alert('Error sending message. Please try again later.');
+    console.error('Fetch error:', error);
+  }
+});
+</script>
+
             
             <script>
               document.getElementById('contactForm').addEventListener('submit', function(e) {
