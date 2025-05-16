@@ -388,61 +388,110 @@
     <!-- Leadership Roles End -->
 
 
-            <!-- Contact Start -->
-            <div class="contact" id="contact">
-                <div class="content-inner">
+                   <!-- Contact Start -->
+                <div class="contact" id="contact">
+                  <div class="content-inner">
                     <div class="content-header">
-                        <h2>Contact</h2>
+                      <h2>Contact</h2>
                     </div>
                     <div class="row align-items-center">
-                        <div class="col-md-6">
-                            <div class="contact-info">
-                                <p><i class="fa fa-user"></i> Sivaneshakumar</p>
-                                <p><i class="fa fa-envelope"></i>
-                                    <a href="mailto:ks.sivaneshakumar@gmail.com">ks.sivaneshakumar@gmail.com</a>
-                                </p>
-                                <p><i class="fa fa-map-marker"></i> Coimbatore, Tamil Nadu, India</p>
-                                <div class="social">
-                                    <a class="btn" href="https://www.linkedin.com/in/sivaneshakumar-ks-345111284" target="_blank">
-                                        <i class="fab fa-linkedin-in"></i>
-                                    </a>
-                                </div>
-                                <div class="social">
-                                    <a class="btn" href="https://github.com/Sivanesh27" target="_blank">
-                                        <i class="fab fa-github"></i>
-                                    </a>
-                                </div>
-                            </div>
+                      <div class="col-md-6">
+                        <div class="contact-info">
+                          <p><i class="fa fa-user"></i> Sivaneshakumar</p>
+                          <p><i class="fa fa-envelope"></i>
+                            <a href="mailto:ks.sivaneshakumar@gmail.com">ks.sivaneshakumar@gmail.com</a>
+                          </p>
+                          <p><i class="fa fa-map-marker"></i> Coimbatore, Tamil Nadu, India</p>
+                          <div class="social">
+                            <a class="btn" href="https://www.linkedin.com/in/sivaneshakumar-ks-345111284" target="_blank">
+                              <i class="fab fa-linkedin-in"></i>
+                            </a>
+                          </div>
+                          <div class="social">
+                            <a class="btn" href="https://github.com/Sivanesh27" target="_blank">
+                              <i class="fab fa-github"></i>
+                            </a>
+                          </div>
                         </div>
-                        <div class="col-md-6">
-                            <div class="form">
-                                <form id="contactForm">
-                                    <div class="form-row">
-                                        <div class="form-group col-md-6">
-                                            <input type="text" name="name" class="form-control" placeholder="Your Name" required />
-                                        </div>
-                                        <div class="form-group col-md-6">
-                                            <input type="email" name="email" class="form-control" placeholder="Your Email"
-                                                required />
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <input type="text" name="subject" class="form-control" placeholder="Subject" required />
-                                    </div>
-                                    <div class="form-group">
-                                        <textarea name="message" class="form-control" rows="5" placeholder="Message"
-                                            required></textarea>
-                                    </div>
-                                    <div>
-                                        <button class="btn" type="submit">Send Message</button>
-                                    </div>
-                                </form>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form">
+                          <form id="contactForm">
+                            <div class="form-row">
+                              <div class="form-group col-md-6">
+                                <input type="text" name="name" class="form-control" placeholder="Your Name" required />
+                              </div>
+                              <div class="form-group col-md-6">
+                                <input type="email" name="email" class="form-control" placeholder="Your Email" required />
+                              </div>
                             </div>
+                            <div class="form-group">
+                              <input type="text" name="subject" class="form-control" placeholder="Subject" required />
+                            </div>
+                            <div class="form-group">
+                              <textarea name="message" class="form-control" rows="5" placeholder="Message" required></textarea>
+                            </div>
+                            <div>
+                              <button class="btn" type="submit">Send Message</button>
+                            </div>
+                          </form>
                         </div>
+                      </div>
                     </div>
+                  </div>
                 </div>
-            </div>
-            <!-- Contact End -->
+                <!-- Contact End -->
+                
+                <!-- Popup Modal -->
+                <div id="popup" style="
+                  display:none;
+                  position:fixed;
+                  top:50%;
+                  left:50%;
+                  transform:translate(-50%, -50%);
+                  background:#fff;
+                  padding:30px 40px;
+                  border-radius:8px;
+                  box-shadow:0 0 15px rgba(0,0,0,0.3);
+                  z-index:10000;
+                  text-align:center;
+                  font-family: Arial, sans-serif;
+                ">
+                  <p style="font-size:18px; margin-bottom:20px; color: #4BB543;">Request sent successfully!</p>
+                  <button onclick="closePopup()" style="
+                    padding:8px 20px;
+                    font-size:16px;
+                    background:#4BB543;
+                    border:none;
+                    color:#fff;
+                    border-radius:5px;
+                    cursor:pointer;
+                  ">Close</button>
+                </div>
+                
+                <script>
+                  const form = document.getElementById('contactForm');
+                  const popup = document.getElementById('popup');
+                
+                  form.addEventListener('submit', function(event) {
+                    event.preventDefault(); // Prevent default form submission
+                    
+                    // You can add your AJAX or fetch call here to send form data to backend
+                
+                    // Simulate successful submission with a timeout (remove this in real use)
+                    setTimeout(() => {
+                      // Show popup on success
+                      popup.style.display = 'block';
+                      // Optional: reset the form after submission
+                      form.reset();
+                    }, 300);
+                  });
+                
+                  function closePopup() {
+                    popup.style.display = 'none';
+                  }
+                </script>
+
 
                 <!-- Footer Start -->
                 <div class="footer">
